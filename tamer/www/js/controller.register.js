@@ -18,7 +18,9 @@ function RegisterCtrl($scope, $state, DUA, $ionicPopup) {
         role:"member",
         key: '87bef141c833eebd326f9e52caff3fe9',
         incode: '',
-        vfcode:null
+        vfcode: null,
+        name: "",
+        avatar:""
     };
     $scope.register = function(regUser)
     {
@@ -48,15 +50,17 @@ function RegisterCtrl($scope, $state, DUA, $ionicPopup) {
 
         $scope.regUser.ustr = $scope.regUser.zone + $scope.regUser.tel;
         DUA.getVfCode($scope.regUser.ustr).then(ok, err);
-        var interval = setInterval(function () {
-            $scope.promise.text = "请等待（" + ($scope.promise.timeout--) + "）秒";
-            if ($scope.promise.timeout == 1) {
-                $scope.promise.text = "获取验证码";
-                clearInterval(interval);
-                $scope.promise.pending = false;
-            }
-        }, 1000);
+
         function ok(result) {
+            var interval = setInterval(function () {
+                $scope.promise.text = "请耐心等待";
+                $scope.promise.timeout--;
+                if ($scope.promise.timeout == 1) {
+                    $scope.promise.text = "获取验证码";
+                    clearInterval(interval);
+                    $scope.promise.pending = false;
+                }
+            }, 1000);
             $ionicPopup.alert({
                 template: "验证码已发送，一分钟之内有效"
             });
@@ -67,6 +71,7 @@ function RegisterCtrl($scope, $state, DUA, $ionicPopup) {
                 title: '验证码发送失败',
                 template: JSON.stringify(reason)
             });
+            $scope.promise.pending = false;
         }
 
     }

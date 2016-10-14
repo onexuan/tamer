@@ -485,7 +485,7 @@ angular.module('dua-sdk', ['ngCordova'])
                             if (result.data.status == 0) {
                                 deferred.resolve(result.data);
                             } else {//{status="no",reason="***"}
-                                deferred.reject(JSON.stringify(result));
+                                deferred.reject(result);
                             }
                         }
                         function err(reason) { deferred.reject(reason); }

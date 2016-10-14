@@ -19,18 +19,26 @@
             </ion-item>
             <ion-item class="item item-input-inset">
                 <label class="item-input-wrapper">
-                    <input type="number" placeholder="6位短信验证码" ng-model="regUser.vfcode">
+                    <input type="text" placeholder="6位短信验证码" ng-model="regUser.vfcode">
                 </label>
-                <button class="button button-balanced" ng-click="getVfCode()" ng-disabled="promise.pending">{{promise.text}}</button>
+                <button class="button button-balanced" ng-click="getVfCode()" ng-disabled="promise.pending">
+                {{promise.text}}
+                <!--{{promise.pending?promise.timeout:""}}-->
+                </button>
             </ion-item>
             <ion-item class="item item-input">
                 <span class="input-label">设置密码</span>
-                <input type="password" placeholder="Password" value="123abc"  ng-model="regUser.pwd">
+                <input type="password" placeholder="Password" value=""  ng-model="regUser.pwd">
             </ion-item>
             <ion-item class="item item-input">
                 <span class="input-label">确认密码</span>
-                <input type="password" placeholder="RePassword"  value="123abc" ng-model="regUser.pwd2">
+                <input type="password" placeholder="RePassword"  value="" ng-model="regUser.pwd2">
             </ion-item>
+            <ion-item class="item item-input">
+                <span class="input-label">昵称</span>
+                <input type="text" placeholder="请输入昵称" ng-model="regUser.name">
+            </ion-item>
+
             <ion-item class="item item-input">
                 <span class="input-label">性别</span>
                 <!--<ion-radio ng-model="regUser.sex" ng-value="'M'">男</ion-radio>
