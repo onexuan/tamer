@@ -129,15 +129,15 @@ angular.module('duac', ['ionic', 'duac.controllers', 'duac.services', "chart.js"
             }
         }
     })
-    //.state('tab.features', {
-    //    url: '/features',
-    //    views: {
-    //        'tab-features': {
-    //            templateUrl: 'templates/tab-features.html',
-    //            controller: 'FeaturesCtrl'
-    //        }
-    //    }
-    //})
+    .state('tab.features', {
+        url: '/features',
+        views: {
+            'tab-features': {
+                templateUrl: 'templates/tab-features.html',
+                controller: 'FeaturesCtrl'
+            }
+        }
+    })
     .state('tab.local', {
         url: '/local',
         views: {

@@ -13,14 +13,14 @@ function LoginCtrl($scope, $state, DUA, $ionicLoading, $ionicPopup,$rootScope) {
     $scope.$on("$ionicView.enter", function () {
         var selectedRole = localStorage.getItem("selectedRole");
         if (selectedRole == null) {
-            $scope.selectedRole = { value: "all", name: "所有权限" };
+            $scope.selectedRole = { value: "DuaBase", name: "所有权限" };
         } else {
             $scope.selectedRole = JSON.parse(selectedRole);
         }
         $scope.loginUser.role = $scope.selectedRole.value;
         
     });
-    $scope.roles = ['member','admin','root','all'];
+    $scope.roles = ['member','admin','root','DuaBase'];
     var props = DUA.getProps("duaLocalStorage_0d82839cf42a298708e70c1f5a9f5872", ["currentZone", "currentUtel", "currentUpwd"]);
     if (props && (Object.prototype.toString.call(props) == '[object Array]')) {
         if(props[0])

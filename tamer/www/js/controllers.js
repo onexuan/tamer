@@ -54,8 +54,8 @@ angular.module('duac.controllers', ['dua-sdk', 'ngCordova'])
 
 .controller('SelectRoleCtrl', function ($scope, $state) {
     $scope.roles = [{ value: "root", name: "根用户" }, { value: "admin", name: "管理员" },
-        { value: "member", name: "普通用户" }, { value: "all", name: "所有权限" }];
-    $scope.curRadio = { selectedRole: { value: "all", name: "所有权限" } };
+        { value: "member", name: "普通用户" }, { value: "DuaBase", name: "所有权限" }];
+    $scope.curRadio = { selectedRole: { value: "DuaBase", name: "所有权限" } };
 
     $scope.$on("$ionicView.enter", function () {
         $scope.curRadio.selectedRole = localStorage.getItem("selectedRole");

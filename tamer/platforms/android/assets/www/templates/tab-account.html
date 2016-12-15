@@ -47,11 +47,10 @@
                 <span class="input-label">采集延时(秒)：</span>
                 <input type="number" placeholder="5" ng-model="settings.delay" style="text-align:center;border:1px solid gray">
             </ion-item>
-            <ion-item>
-                <button class="button button-assertive" ng-click="saveSettings()">保存设置</button>
-            </ion-item>
         </ion-list>
         <div class="padding">
+            <button class="button button-block button button-assertive" ng-click="saveSettings()">保存设置
+            </button>
             <button class="button button-block button-assertive" ng-click="logout()" on-swipe-left="goLogin()">
                 退出账号
             </button>
